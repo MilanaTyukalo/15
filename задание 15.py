@@ -51,7 +51,6 @@ for i in range(count):
 
     data['products'].append(new_product)
 
-    # Вывод всех продуктов
     for product in data['products']:
         print(f"Название: {product['name']}")
         print(f"Цена: {product['price']}")
@@ -65,7 +64,7 @@ for i in range(count):
 #9.3
 import os
 
-#исходный словарь (русский → английский)
+
 ru_en = {
     "кошка": "cat",
     "собака": "dog",
@@ -79,7 +78,7 @@ ru_en = {
 en_ru = {}
 
 for ru, eng in ru_en.items():
-#разделяем английские слова по запятой
+    
     eng_words = eng.split(", ")
 
     for eng_word in eng_words:
@@ -88,14 +87,13 @@ for ru, eng in ru_en.items():
         if ru not in en_ru[eng_word]:
             en_ru[eng_word].append(ru)
 
-#записываем в файл
+
 try:
     with open("ru-en.txt", "w", encoding="utf-8") as f:
         for eng in sorted(en_ru.keys()):
             ru_words = ", ".join(sorted(en_ru[eng]))
             f.write(f"{eng} – {ru_words}\n")
 
-#проверяем, создался ли файл
     if os.path.exists("ru-en.txt"):
         print("Файл ru-en.txt успешно создан!")
         print("\nСодержимое файла:")
